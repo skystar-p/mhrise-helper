@@ -6,6 +6,7 @@ struct Armor {
     name: String,
     rarity: isize,
     skills: Vec<Skill>,
+    slots: Vec<isize>,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
@@ -63,7 +64,28 @@ async fn main() -> anyhow::Result<()> {
                 bail!("name td not found in tr");
             };
 
-            let mut tds = tds.skip(3);
+            let slots = if let Some(t) = tds.next() {
+                // this td contains multiple imgs, and each img tag contains information about slot size
+                let img_selector = scraper::Selector::parse("img").unwrap();
+                let imgs = t.select(&img_selector);
+                let mut slots = Vec::new();
+                for img in imgs {
+                    let src = img.value().attr("src").unwrap_or("");
+                    let (_, image_name) = src.rsplit_once("/").unwrap_or(("", ""));
+                    let (image_name, _) = image_name.split_once(".").unwrap_or(("", ""));
+                    let s = image_name
+                        .trim_start_matches("deco")
+                        .parse::<isize>()
+                        .unwrap();
+                    slots.push(s);
+                }
+                slots.sort_unstable();
+                slots
+            } else {
+                bail!("slots td not found in tr");
+            };
+
+            let mut tds = tds.skip(2);
             let skills = if let Some(t) = tds.next() {
                 // this td contains multiple divs, each div contains a skill name and level
                 let div_selector = scraper::Selector::parse("div").unwrap();
@@ -87,6 +109,7 @@ async fn main() -> anyhow::Result<()> {
                 name,
                 rarity,
                 skills,
+                slots,
             };
             println!("{:?}", armor);
 
