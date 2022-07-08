@@ -1,13 +1,14 @@
 use anyhow::bail;
+use serde::{Deserialize, Serialize};
 
-#[derive(Debug)]
+#[derive(Debug, Serialize, Deserialize)]
 struct Armor {
     name: String,
     rarity: isize,
     skills: Vec<Skill>,
 }
 
-#[derive(Debug)]
+#[derive(Debug, Serialize, Deserialize)]
 struct Skill {
     name: String,
     level: isize,
@@ -94,6 +95,10 @@ async fn main() -> anyhow::Result<()> {
     }
 
     println!("total armors: {}", armors.len());
+
+    let serialized = serde_json::to_string(&armors)?;
+    // save to file
+    tokio::fs::write("armors.json", serialized).await?;
 
     Ok(())
 }
