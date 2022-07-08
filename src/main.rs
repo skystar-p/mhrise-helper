@@ -4,6 +4,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Debug, Serialize, Deserialize)]
 struct Armor {
     name: String,
+    part: ArmorPart,
     rarity: isize,
     skills: Vec<Skill>,
     slots: Vec<isize>,
@@ -13,6 +14,60 @@ struct Armor {
 struct Skill {
     name: String,
     level: isize,
+}
+
+#[derive(Debug, Serialize, Deserialize, PartialEq, Eq)]
+#[serde(rename_all = "snake_case")]
+enum ArmorPart {
+    Head,
+    Body,
+    Hands,
+    Waist,
+    Legs,
+    Unknown,
+}
+
+const HEAD_NAME_KEYWORDS: [&str; 14] = [
+    "머리",
+    "헬름",
+    "복면",
+    "상투",
+    "가면",
+    "후드",
+    "이어링",
+    "귀걸이",
+    "두건",
+    "헤드",
+    "페이크",
+    "갑주",
+    "깃털장식",
+    "크라운",
+];
+
+const BODY_NAME_KEYWORDS: [&str; 6] = ["상의", "재킷", "베스트", "메일", "갑옷", "슈트"];
+
+const HAND_NAME_KEYWORDS: [&str; 5] = ["암", "장갑", "손목", "글러브", "의팔"];
+
+const WAIST_NAME_KEYWORDS: [&str; 3] = ["벨트", "코일", "허리"];
+
+const LEG_NAME_KEYWORDS: [&str; 5] = ["그리브", "풋", "다리", "각", "팬츠"];
+
+impl ArmorPart {
+    fn from_name(s: &str) -> Self {
+        if HEAD_NAME_KEYWORDS.iter().any(|&kw| s.contains(kw)) {
+            ArmorPart::Head
+        } else if BODY_NAME_KEYWORDS.iter().any(|&kw| s.contains(kw)) {
+            ArmorPart::Body
+        } else if HAND_NAME_KEYWORDS.iter().any(|&kw| s.contains(kw)) {
+            ArmorPart::Hands
+        } else if WAIST_NAME_KEYWORDS.iter().any(|&kw| s.contains(kw)) {
+            ArmorPart::Waist
+        } else if LEG_NAME_KEYWORDS.iter().any(|&kw| s.contains(kw)) {
+            ArmorPart::Legs
+        } else {
+            ArmorPart::Unknown
+        }
+    }
 }
 
 #[tokio::main]
@@ -105,8 +160,10 @@ async fn main() -> anyhow::Result<()> {
                 bail!("skills td not found in tr");
             };
 
+            let part = ArmorPart::from_name(&name);
             let armor = Armor {
                 name,
+                part,
                 rarity,
                 skills,
                 slots,
@@ -119,9 +176,19 @@ async fn main() -> anyhow::Result<()> {
 
     println!("total armors: {}", armors.len());
 
+    // print unknown part armors
+    let unknowns = armors
+        .iter()
+        .filter(|a| a.part == ArmorPart::Unknown)
+        .collect::<Vec<_>>();
+
     let serialized = serde_json::to_string(&armors)?;
     // save to file
     tokio::fs::write("armors.json", serialized).await?;
+
+    let serialized = serde_json::to_string(&unknowns)?;
+    // save to file
+    tokio::fs::write("unknowns.json", serialized).await?;
 
     Ok(())
 }
