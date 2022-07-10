@@ -1,6 +1,6 @@
 use serde::{Deserialize, Serialize};
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct Armor {
     pub name: String,
     pub part: ArmorPart,
@@ -9,13 +9,13 @@ pub struct Armor {
     pub slots: Vec<isize>,
 }
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct Skill {
     pub name: String,
     pub level: isize,
 }
 
-#[derive(Debug, Serialize, Deserialize, PartialEq, Eq)]
+#[derive(Debug, Serialize, Deserialize, PartialEq, Eq, Hash, Clone)]
 #[serde(rename_all = "snake_case")]
 pub enum ArmorPart {
     Head,
@@ -85,5 +85,6 @@ impl PartKeywords {
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Deco {
     pub name: String,
+    pub size: isize,
     pub skill: Skill,
 }

@@ -208,6 +208,18 @@ pub async fn crawl_and_parse_decos() -> anyhow::Result<Vec<Deco>> {
             bail!("name td not found in tr");
         };
 
+        let size = name
+            .split_once("【")
+            .unwrap()
+            .1
+            .trim()
+            .split_once("】")
+            .unwrap()
+            .0
+            .trim()
+            .parse::<isize>()
+            .unwrap();
+
         let skill = if let Some(t) = tds.next() {
             let text = t.text().collect::<String>().trim().to_string();
             let (name, level) = text.rsplit_once(" ").unwrap();
@@ -220,7 +232,7 @@ pub async fn crawl_and_parse_decos() -> anyhow::Result<Vec<Deco>> {
         };
 
         // push to decos
-        decos.push(Deco { name, skill });
+        decos.push(Deco { name, size, skill });
     }
 
     // save to file
