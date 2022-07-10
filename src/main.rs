@@ -27,53 +27,69 @@ enum ArmorPart {
     Unknown,
 }
 
-const HEAD_NAME_KEYWORDS: [&str; 14] = [
-    "머리",
-    "헬름",
-    "복면",
-    "상투",
-    "가면",
-    "후드",
-    "이어링",
-    "귀걸이",
-    "두건",
-    "헤드",
-    "페이크",
-    "갑주",
-    "깃털장식",
-    "크라운",
-];
-
-const BODY_NAME_KEYWORDS: [&str; 6] = ["상의", "재킷", "베스트", "메일", "갑옷", "슈트"];
-
-const HAND_NAME_KEYWORDS: [&str; 5] = ["암", "장갑", "손목", "글러브", "의팔"];
-
-const WAIST_NAME_KEYWORDS: [&str; 3] = ["벨트", "코일", "허리"];
-
-const LEG_NAME_KEYWORDS: [&str; 5] = ["그리브", "풋", "다리", "각", "팬츠"];
-
 impl ArmorPart {
-    fn from_name(s: &str) -> Self {
-        if HEAD_NAME_KEYWORDS.iter().any(|&kw| s.contains(kw)) {
-            ArmorPart::Head
-        } else if BODY_NAME_KEYWORDS.iter().any(|&kw| s.contains(kw)) {
-            ArmorPart::Body
-        } else if HAND_NAME_KEYWORDS.iter().any(|&kw| s.contains(kw)) {
-            ArmorPart::Hands
-        } else if WAIST_NAME_KEYWORDS.iter().any(|&kw| s.contains(kw)) {
-            ArmorPart::Waist
-        } else if LEG_NAME_KEYWORDS.iter().any(|&kw| s.contains(kw)) {
-            ArmorPart::Legs
-        } else {
-            ArmorPart::Unknown
+    fn from_name(keywords: &PartKeywords, s: &str) -> Self {
+        if keywords.head.iter().find(|p| s.contains(&**p)).is_some() {
+            return ArmorPart::Head;
+        }
+        if keywords.body.iter().find(|p| s.contains(&**p)).is_some() {
+            return ArmorPart::Body;
+        }
+        if keywords.hands.iter().find(|p| s.contains(&**p)).is_some() {
+            return ArmorPart::Hands;
+        }
+        if keywords.waist.iter().find(|p| s.contains(&**p)).is_some() {
+            return ArmorPart::Waist;
+        }
+        if keywords.legs.iter().find(|p| s.contains(&**p)).is_some() {
+            return ArmorPart::Legs;
+        }
+        return ArmorPart::Unknown;
+    }
+}
+
+impl std::fmt::Display for ArmorPart {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            ArmorPart::Head => write!(f, "head"),
+            ArmorPart::Body => write!(f, "body"),
+            ArmorPart::Hands => write!(f, "hands"),
+            ArmorPart::Waist => write!(f, "waist"),
+            ArmorPart::Legs => write!(f, "legs"),
+            ArmorPart::Unknown => write!(f, "unknown"),
+        }
+    }
+}
+
+#[derive(Debug, Serialize, Deserialize)]
+struct PartKeywords {
+    head: Vec<String>,
+    body: Vec<String>,
+    hands: Vec<String>,
+    waist: Vec<String>,
+    legs: Vec<String>,
+}
+
+impl PartKeywords {
+    fn add_keyword(&mut self, part: &ArmorPart, keyword: &str) {
+        match part {
+            ArmorPart::Head => self.head.push(keyword.to_string()),
+            ArmorPart::Body => self.body.push(keyword.to_string()),
+            ArmorPart::Hands => self.hands.push(keyword.to_string()),
+            ArmorPart::Waist => self.waist.push(keyword.to_string()),
+            ArmorPart::Legs => self.legs.push(keyword.to_string()),
+            ArmorPart::Unknown => {}
         }
     }
 }
 
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
-    let client = reqwest::Client::new();
+    // read part keywords from file
+    let part_keywords = tokio::fs::read_to_string("assets/part_keywords.json").await?;
+    let mut part_keywords: PartKeywords = serde_json::from_str(&part_keywords)?;
 
+    let client = reqwest::Client::new();
     let mut armors = Vec::new();
     for rarity in 0..10 {
         let response = client
@@ -160,7 +176,7 @@ async fn main() -> anyhow::Result<()> {
                 bail!("skills td not found in tr");
             };
 
-            let part = ArmorPart::from_name(&name);
+            let part = ArmorPart::from_name(&part_keywords, &name);
             let armor = Armor {
                 name,
                 part,
@@ -176,19 +192,59 @@ async fn main() -> anyhow::Result<()> {
 
     println!("total armors: {}", armors.len());
 
-    // print unknown part armors
-    let unknowns = armors
-        .iter()
-        .filter(|a| a.part == ArmorPart::Unknown)
-        .collect::<Vec<_>>();
+    // iterate each unknown parts inquery which part is it
+    for armor in armors.as_mut_slice() {
+        if armor.part != ArmorPart::Unknown {
+            continue;
+        }
+        let part = ArmorPart::from_name(&part_keywords, &armor.name);
+        if part != ArmorPart::Unknown {
+            armor.part = part;
+            println!("armor {} tagged as {}", armor.name, armor.part);
+            continue;
+        }
+        println!("armor name is {}, which part is it?", armor.name);
+        println!("1. head");
+        println!("2. body");
+        println!("3. hands");
+        println!("4. waist");
+        println!("5. legs");
 
+        while armor.part == ArmorPart::Unknown {
+            let mut input = String::new();
+            std::io::stdin().read_line(&mut input).unwrap();
+            let input = input.trim();
+            let input = input.parse::<usize>().unwrap();
+            match input {
+                1 => armor.part = ArmorPart::Head,
+                2 => armor.part = ArmorPart::Body,
+                3 => armor.part = ArmorPart::Hands,
+                4 => armor.part = ArmorPart::Waist,
+                5 => armor.part = ArmorPart::Legs,
+                _ => {
+                    println!("invalid input, skipping...");
+                    break;
+                }
+            }
+        }
+
+        if armor.part == ArmorPart::Unknown {
+            break;
+        }
+
+        println!("what keyword does make it as {}?", armor.part);
+        let mut input = String::new();
+        std::io::stdin().read_line(&mut input).unwrap();
+        let input = input.trim();
+        let input = input.to_string();
+        part_keywords.add_keyword(&armor.part, &input);
+        let serialized = serde_json::to_string(&part_keywords)?;
+        tokio::fs::write("assets/part_keywords.json", serialized).await?;
+    }
+
+    // save to file
     let serialized = serde_json::to_string(&armors)?;
-    // save to file
-    tokio::fs::write("armors.json", serialized).await?;
-
-    let serialized = serde_json::to_string(&unknowns)?;
-    // save to file
-    tokio::fs::write("unknowns.json", serialized).await?;
+    tokio::fs::write("assets/armors.json", serialized).await?;
 
     Ok(())
 }
