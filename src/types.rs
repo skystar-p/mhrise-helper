@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
@@ -15,50 +17,41 @@ pub struct Skill {
     pub level: isize,
 }
 
-#[derive(Debug)]
-pub struct Skills(pub Vec<Skill>);
+#[derive(Debug, Clone)]
+pub struct Skills(HashMap<String, isize>);
 
 impl Skills {
     pub fn new() -> Self {
-        Skills(Vec::new())
+        Skills(HashMap::new())
     }
 
-    pub fn from_skills(skills: &Vec<Skill>) -> Self {
-        Skills(skills.clone())
-    }
-
-    pub fn merge(&self, other: &Self) -> Self {
-        let mut res = other.0.clone();
-        for s in self.0.iter() {
-            // find the same skill in the other list
-            // if found, merge the level
-            let mut found = false;
-            for o in res.iter_mut() {
-                if s.name == o.name {
-                    found = true;
-                    o.level += s.level;
-                    break;
-                }
+    pub fn from_skill_vec(skills: &Vec<Skill>) -> Self {
+        let mut skills_map = HashMap::with_capacity(skills.len());
+        for skill in skills {
+            if skill.level <= 0 {
+                continue;
             }
-            if !found {
-                res.push(s.clone());
-            }
+            let v = skills_map.entry(skill.name.clone()).or_insert(0);
+            *v += skill.level;
         }
-        Skills(res)
+        Skills(skills_map)
+    }
+
+    pub fn merge(&mut self, other: &Self) -> &mut Self {
+        for (key, value) in other.0.iter() {
+            let v = self.0.entry(key.clone()).or_insert(0);
+            *v += value;
+        }
+        self
     }
 
     pub fn is_superset_of(&self, other: &Self) -> bool {
-        for o in other.0.iter() {
-            let mut ok = false;
-            for s in self.0.iter() {
-                if s.name == o.name {
-                    if s.level >= o.level {
-                        ok = true;
-                    }
-                    break;
+        for (other_name, other_skill) in other.0.iter() {
+            if let Some(self_skill) = self.0.get(other_name) {
+                if self_skill < other_skill {
+                    return false;
                 }
-            }
-            if !ok {
+            } else {
                 return false;
             }
         }
@@ -66,14 +59,31 @@ impl Skills {
     }
 
     pub fn has_intersection(&self, other: &Self) -> bool {
-        for s in self.0.iter() {
-            for o in other.0.iter() {
-                if s.name == o.name {
+        for self_name in self.0.keys() {
+            for other_name in other.0.keys() {
+                if self_name == other_name {
                     return true;
                 }
             }
         }
         false
+    }
+
+    pub fn subtract(&mut self, other: &Self) -> &mut Self {
+        for (k, v) in other.0.iter() {
+            if let Some(self_v) = self.0.get_mut(k) {
+                if *self_v <= *v {
+                    self.0.remove(k);
+                } else {
+                    *self_v -= *v;
+                }
+            }
+        }
+        self
+    }
+
+    pub fn has_skill(&self, name: &str) -> bool {
+        self.0.contains_key(name)
     }
 }
 

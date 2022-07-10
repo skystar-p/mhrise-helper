@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-use itertools::iproduct;
+use itertools::{iproduct, Itertools};
 use types::ArmorPart;
 
 use crate::types::{Skill, Skills};
@@ -24,7 +24,7 @@ async fn main() -> anyhow::Result<()> {
         serde_json::from_str(&s)?
     };
 
-    let wanted_skills = Skills::from_skills(&vec![
+    let wanted_skills = Skills::from_skill_vec(&vec![
         Skill {
             name: "체술".to_string(),
             level: 5,
@@ -50,7 +50,7 @@ async fn main() -> anyhow::Result<()> {
             continue;
         }
 
-        let skills = Skills::from_skills(&armor.skills);
+        let skills = Skills::from_skill_vec(&armor.skills);
         if !skills.has_intersection(&wanted_skills) {
             continue;
         }
@@ -59,6 +59,13 @@ async fn main() -> anyhow::Result<()> {
         av.push(armor.clone());
     }
 
+    // filter available deco
+    let decos = decos
+        .into_iter()
+        .filter(|deco| wanted_skills.has_skill(&deco.skill.name))
+        .sorted_by(|a, b| b.size.cmp(&a.size))
+        .collect::<Vec<_>>();
+
     for (head, body, hands, waist, legs) in iproduct!(
         armors_map.get(&ArmorPart::Head).unwrap(),
         armors_map.get(&ArmorPart::Body).unwrap(),
@@ -66,19 +73,20 @@ async fn main() -> anyhow::Result<()> {
         armors_map.get(&ArmorPart::Waist).unwrap(),
         armors_map.get(&ArmorPart::Legs).unwrap()
     ) {
-        let skills = Skills::new();
-        let head_skills = Skills::from_skills(&head.skills);
-        let body_skills = Skills::from_skills(&body.skills);
-        let hands_skills = Skills::from_skills(&hands.skills);
-        let waist_skills = Skills::from_skills(&waist.skills);
-        let legs_skills = Skills::from_skills(&legs.skills);
+        let mut skills = Skills::new();
+        let head_skills = Skills::from_skill_vec(&head.skills);
+        let body_skills = Skills::from_skill_vec(&body.skills);
+        let hands_skills = Skills::from_skill_vec(&hands.skills);
+        let waist_skills = Skills::from_skill_vec(&waist.skills);
+        let legs_skills = Skills::from_skill_vec(&legs.skills);
 
         // merge all
-        let skills = skills.merge(&head_skills);
-        let skills = skills.merge(&body_skills);
-        let skills = skills.merge(&hands_skills);
-        let skills = skills.merge(&waist_skills);
-        let skills = skills.merge(&legs_skills);
+        let skills = skills
+            .merge(&head_skills)
+            .merge(&body_skills)
+            .merge(&hands_skills)
+            .merge(&waist_skills)
+            .merge(&legs_skills);
 
         if skills.is_superset_of(&wanted_skills) {
             println!("{:?}", skills);
@@ -86,6 +94,9 @@ async fn main() -> anyhow::Result<()> {
                 "{} {} {} {} {}",
                 head.name, body.name, hands.name, waist.name, legs.name
             );
+        } else {
+            let mut wanted_skills = wanted_skills.clone();
+            wanted_skills.subtract(&skills);
         }
     }
 
