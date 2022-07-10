@@ -81,3 +81,9 @@ impl PartKeywords {
         }
     }
 }
+
+#[derive(Debug, Serialize, Deserialize)]
+pub struct Deco {
+    pub name: String,
+    pub skill: Skill,
+}
