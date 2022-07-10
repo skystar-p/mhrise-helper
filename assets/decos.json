@@ -1,0 +1,1330 @@
+[
+  {
+    "name": "달예주【2】",
+    "size": 2,
+    "skill": {
+      "name": "달인의 재주",
+      "level": 1
+    }
+  },
+  {
+    "name": "장인주【3】",
+    "size": 3,
+    "skill": {
+      "name": "장인",
+      "level": 1
+    }
+  },
+  {
+    "name": "운기주【3】",
+    "size": 3,
+    "skill": {
+      "name": "행운",
+      "level": 1
+    }
+  },
+  {
+    "name": "귀화주【3】",
+    "size": 3,
+    "skill": {
+      "name": "귀화전",
+      "level": 1
+    }
+  },
+  {
+    "name": "철인주【3】",
+    "size": 3,
+    "skill": {
+      "name": "점프 철인",
+      "level": 1
+    }
+  },
+  {
+    "name": "속사주【3】",
+    "size": 3,
+    "skill": {
+      "name": "속사 강화",
+      "level": 1
+    }
+  },
+  {
+    "name": "절탄주【2】",
+    "size": 2,
+    "skill": {
+      "name": "탄환 절약",
+      "level": 1
+    }
+  },
+  {
+    "name": "참철주【2】",
+    "size": 2,
+    "skill": {
+      "name": "명검",
+      "level": 1
+    }
+  },
+  {
+    "name": "산탄주【3】",
+    "size": 3,
+    "skill": {
+      "name": "산탄/확산화살 강화",
+      "level": 1
+    }
+  },
+  {
+    "name": "관통주【3】",
+    "size": 3,
+    "skill": {
+      "name": "관통탄/관통화살 강화",
+      "level": 1
+    }
+  },
+  {
+    "name": "강탄주【3】",
+    "size": 3,
+    "skill": {
+      "name": "통상탄/연사화살 강화",
+      "level": 1
+    }
+  },
+  {
+    "name": "강인주【2】",
+    "size": 2,
+    "skill": {
+      "name": "칼날 연마",
+      "level": 1
+    }
+  },
+  {
+    "name": "폭파주【2】",
+    "size": 2,
+    "skill": {
+      "name": "폭파속성 강화",
+      "level": 1
+    }
+  },
+  {
+    "name": "수면주【2】",
+    "size": 2,
+    "skill": {
+      "name": "수면속성 강화",
+      "level": 1
+    }
+  },
+  {
+    "name": "마비주【2】",
+    "size": 2,
+    "skill": {
+      "name": "마비속성 강화",
+      "level": 1
+    }
+  },
+  {
+    "name": "전개주【2】",
+    "size": 2,
+    "skill": {
+      "name": "힘의 해방",
+      "level": 1
+    }
+  },
+  {
+    "name": "궁지주【2】",
+    "size": 2,
+    "skill": {
+      "name": "돌파구",
+      "level": 1
+    }
+  },
+  {
+    "name": "역상주【2】",
+    "size": 2,
+    "skill": {
+      "name": "앙심",
+      "level": 1
+    }
+  },
+  {
+    "name": "무결주【2】",
+    "size": 2,
+    "skill": {
+      "name": "완전 충전",
+      "level": 1
+    }
+  },
+  {
+    "name": "도전주【2】",
+    "size": 2,
+    "skill": {
+      "name": "도전자",
+      "level": 1
+    }
+  },
+  {
+    "name": "통격주【2】",
+    "size": 2,
+    "skill": {
+      "name": "약점 특효",
+      "level": 1
+    }
+  },
+  {
+    "name": "초심주【2】",
+    "size": 2,
+    "skill": {
+      "name": "슈퍼회심",
+      "level": 1
+    }
+  },
+  {
+    "name": "장전주【3】",
+    "size": 3,
+    "skill": {
+      "name": "장전 확장",
+      "level": 1
+    }
+  },
+  {
+    "name": "수세주【3】",
+    "size": 3,
+    "skill": {
+      "name": "공격적인 방어",
+      "level": 1
+    }
+  },
+  {
+    "name": "이호주【3】",
+    "size": 3,
+    "skill": {
+      "name": "버섯 애호가",
+      "level": 1
+    }
+  },
+  {
+    "name": "발도주【3】",
+    "size": 3,
+    "skill": {
+      "name": "발도술【기】",
+      "level": 1
+    }
+  },
+  {
+    "name": "사법주【2】",
+    "size": 2,
+    "skill": {
+      "name": "탄도 강화",
+      "level": 1
+    }
+  },
+  {
+    "name": "속회주【2】",
+    "size": 2,
+    "skill": {
+      "name": "회심격【속성】",
+      "level": 1
+    }
+  },
+  {
+    "name": "포술주【2】",
+    "size": 2,
+    "skill": {
+      "name": "포술",
+      "level": 1
+    }
+  },
+  {
+    "name": "강주주【2】",
+    "size": 2,
+    "skill": {
+      "name": "런너",
+      "level": 1
+    }
+  },
+  {
+    "name": "단축주【2】",
+    "size": 2,
+    "skill": {
+      "name": "집중",
+      "level": 1
+    }
+  },
+  {
+    "name": "심안주【2】",
+    "size": 2,
+    "skill": {
+      "name": "심안",
+      "level": 1
+    }
+  },
+  {
+    "name": "저력주【2】",
+    "size": 2,
+    "skill": {
+      "name": "재난대처능력",
+      "level": 1
+    }
+  },
+  {
+    "name": "특사주【2】",
+    "size": 2,
+    "skill": {
+      "name": "특수 사격 강화",
+      "level": 1
+    }
+  },
+  {
+    "name": "증탄주【2】",
+    "size": 2,
+    "skill": {
+      "name": "포탄 장전",
+      "level": 1
+    }
+  },
+  {
+    "name": "강벽주【2】",
+    "size": 2,
+    "skill": {
+      "name": "가드 강화",
+      "level": 1
+    }
+  },
+  {
+    "name": "철벽주【2】",
+    "size": 2,
+    "skill": {
+      "name": "가드 성능",
+      "level": 1
+    }
+  },
+  {
+    "name": "조기주【2】",
+    "size": 2,
+    "skill": {
+      "name": "스태미나 급속 회복",
+      "level": 1
+    }
+  },
+  {
+    "name": "고양주【2】",
+    "size": 2,
+    "skill": {
+      "name": "강화 지속",
+      "level": 1
+    }
+  },
+  {
+    "name": "혼신주【2】",
+    "size": 2,
+    "skill": {
+      "name": "혼신",
+      "level": 1
+    }
+  },
+  {
+    "name": "공격주【2】",
+    "size": 2,
+    "skill": {
+      "name": "공격",
+      "level": 1
+    }
+  },
+  {
+    "name": "달인주【2】",
+    "size": 2,
+    "skill": {
+      "name": "간파",
+      "level": 1
+    }
+  },
+  {
+    "name": "속변주【2】",
+    "size": 2,
+    "skill": {
+      "name": "고속 변형",
+      "level": 1
+    }
+  },
+  {
+    "name": "억반주【1】",
+    "size": 1,
+    "skill": {
+      "name": "반동 경감",
+      "level": 1
+    }
+  },
+  {
+    "name": "둔기주【2】",
+    "size": 2,
+    "skill": {
+      "name": "둔기 사용",
+      "level": 1
+    }
+  },
+  {
+    "name": "조전주【1】",
+    "size": 1,
+    "skill": {
+      "name": "장전 속도",
+      "level": 1
+    }
+  },
+  {
+    "name": "내절주【1】",
+    "size": 1,
+    "skill": {
+      "name": "기절 내성",
+      "level": 1
+    }
+  },
+  {
+    "name": "내진주【2】",
+    "size": 2,
+    "skill": {
+      "name": "내진",
+      "level": 1
+    }
+  },
+  {
+    "name": "방음주【3】",
+    "size": 3,
+    "skill": {
+      "name": "귀마개",
+      "level": 1
+    }
+  },
+  {
+    "name": "역습주【2】",
+    "size": 2,
+    "skill": {
+      "name": "역습",
+      "level": 1
+    }
+  },
+  {
+    "name": "포말주【2】",
+    "size": 2,
+    "skill": {
+      "name": "거품의 춤",
+      "level": 1
+    }
+  },
+  {
+    "name": "점사주【1】",
+    "size": 1,
+    "skill": {
+      "name": "흔들림 억제",
+      "level": 1
+    }
+  },
+  {
+    "name": "발타주【2】",
+    "size": 2,
+    "skill": {
+      "name": "발도술【힘】",
+      "level": 1
+    }
+  },
+  {
+    "name": "도약주【2】",
+    "size": 2,
+    "skill": {
+      "name": "회피 거리 UP",
+      "level": 1
+    }
+  },
+  {
+    "name": "회피주【2】",
+    "size": 2,
+    "skill": {
+      "name": "회피 성능",
+      "level": 1
+    }
+  },
+  {
+    "name": "내충주【1】",
+    "size": 1,
+    "skill": {
+      "name": "움찔 감소",
+      "level": 1
+    }
+  },
+  {
+    "name": "속납주【2】",
+    "size": 2,
+    "skill": {
+      "name": "납도술",
+      "level": 1
+    }
+  },
+  {
+    "name": "방풍주【1】",
+    "size": 1,
+    "skill": {
+      "name": "풍압 내성",
+      "level": 1
+    }
+  },
+  {
+    "name": "KO주【2】",
+    "size": 2,
+    "skill": {
+      "name": "KO술",
+      "level": 1
+    }
+  },
+  {
+    "name": "우애주【2】",
+    "size": 2,
+    "skill": {
+      "name": "광역화",
+      "level": 1
+    }
+  },
+  {
+    "name": "중격주【2】",
+    "size": 2,
+    "skill": {
+      "name": "파괴왕",
+      "level": 1
+    }
+  },
+  {
+    "name": "내속주【2】",
+    "size": 2,
+    "skill": {
+      "name": "속성 피해 내성",
+      "level": 1
+    }
+  },
+  {
+    "name": "흡입주【2】",
+    "size": 2,
+    "skill": {
+      "name": "빨리 먹기",
+      "level": 1
+    }
+  },
+  {
+    "name": "가호주【2】",
+    "size": 2,
+    "skill": {
+      "name": "정령의 가호",
+      "level": 1
+    }
+  },
+  {
+    "name": "벽주주【2】",
+    "size": 2,
+    "skill": {
+      "name": "벽면 이동",
+      "level": 1
+    }
+  },
+  {
+    "name": "상충주【2】",
+    "size": 2,
+    "skill": {
+      "name": "밧줄벌레꾼",
+      "level": 1
+    }
+  },
+  {
+    "name": "연마주【1】",
+    "size": 1,
+    "skill": {
+      "name": "숫돌 사용 고속화",
+      "level": 1
+    }
+  },
+  {
+    "name": "지속주【2】",
+    "size": 2,
+    "skill": {
+      "name": "아이템 사용 강화",
+      "level": 1
+    }
+  },
+  {
+    "name": "조복주【1】",
+    "size": 1,
+    "skill": {
+      "name": "회복 속도",
+      "level": 1
+    }
+  },
+  {
+    "name": "치유주【2】",
+    "size": 2,
+    "skill": {
+      "name": "체력 회복량 UP",
+      "level": 1
+    }
+  },
+  {
+    "name": "고적주【1】",
+    "size": 1,
+    "skill": {
+      "name": "피리 명인",
+      "level": 1
+    }
+  },
+  {
+    "name": "탈기주【1】",
+    "size": 1,
+    "skill": {
+      "name": "스태미나 탈취",
+      "level": 1
+    }
+  },
+  {
+    "name": "체술주【2】",
+    "size": 2,
+    "skill": {
+      "name": "체술",
+      "level": 1
+    }
+  },
+  {
+    "name": "독주【1】",
+    "size": 1,
+    "skill": {
+      "name": "독속성 강화",
+      "level": 1
+    }
+  },
+  {
+    "name": "활주주【1】",
+    "size": 1,
+    "skill": {
+      "name": "활주 강화",
+      "level": 1
+    }
+  },
+  {
+    "name": "폭사주【1】",
+    "size": 1,
+    "skill": {
+      "name": "보머",
+      "level": 1
+    }
+  },
+  {
+    "name": "화염주【1】",
+    "size": 1,
+    "skill": {
+      "name": "불속성 공격 강화",
+      "level": 1
+    }
+  },
+  {
+    "name": "유수주【1】",
+    "size": 1,
+    "skill": {
+      "name": "물속성 공격 강화",
+      "level": 1
+    }
+  },
+  {
+    "name": "뇌광주【1】",
+    "size": 1,
+    "skill": {
+      "name": "번개속성 공격 강화",
+      "level": 1
+    }
+  },
+  {
+    "name": "빙결주【1】",
+    "size": 1,
+    "skill": {
+      "name": "얼음속성 공격 강화",
+      "level": 1
+    }
+  },
+  {
+    "name": "파룡주【1】",
+    "size": 1,
+    "skill": {
+      "name": "용속성 공격 강화",
+      "level": 1
+    }
+  },
+  {
+    "name": "방어주【1】",
+    "size": 1,
+    "skill": {
+      "name": "방어",
+      "level": 1
+    }
+  },
+  {
+    "name": "박피주【1】",
+    "size": 1,
+    "skill": {
+      "name": "갈무리 철인",
+      "level": 1
+    }
+  },
+  {
+    "name": "탑승주【2】",
+    "size": 2,
+    "skill": {
+      "name": "탑승 명인",
+      "level": 1
+    }
+  },
+  {
+    "name": "공복주【1】",
+    "size": 1,
+    "skill": {
+      "name": "배고픔 내성",
+      "level": 1
+    }
+  },
+  {
+    "name": "절식주【1】",
+    "size": 1,
+    "skill": {
+      "name": "만족감",
+      "level": 1
+    }
+  },
+  {
+    "name": "이설주【1】",
+    "size": 1,
+    "skill": {
+      "name": "진흙/눈 내성",
+      "level": 1
+    }
+  },
+  {
+    "name": "양동주【1】",
+    "size": 1,
+    "skill": {
+      "name": "양동",
+      "level": 1
+    }
+  },
+  {
+    "name": "비입주【1】",
+    "size": 1,
+    "skill": {
+      "name": "뛰어들기",
+      "level": 1
+    }
+  },
+  {
+    "name": "역경주【2】",
+    "size": 2,
+    "skill": {
+      "name": "불굴",
+      "level": 1
+    }
+  },
+  {
+    "name": "지학주【1】",
+    "size": 1,
+    "skill": {
+      "name": "지질학",
+      "level": 1
+    }
+  },
+  {
+    "name": "식학주【1】",
+    "size": 1,
+    "skill": {
+      "name": "식생학",
+      "level": 1
+    }
+  },
+  {
+    "name": "내폭주【1】",
+    "size": 1,
+    "skill": {
+      "name": "폭파 피해 내성",
+      "level": 1
+    }
+  },
+  {
+    "name": "내면주【1】",
+    "size": 1,
+    "skill": {
+      "name": "수면 내성",
+      "level": 1
+    }
+  },
+  {
+    "name": "내비주【1】",
+    "size": 1,
+    "skill": {
+      "name": "마비 내성",
+      "level": 1
+    }
+  },
+  {
+    "name": "내독주【1】",
+    "size": 1,
+    "skill": {
+      "name": "독 내성",
+      "level": 1
+    }
+  },
+  {
+    "name": "내화주【1】",
+    "size": 1,
+    "skill": {
+      "name": "불 내성",
+      "level": 1
+    }
+  },
+  {
+    "name": "내수주【1】",
+    "size": 1,
+    "skill": {
+      "name": "물 내성",
+      "level": 1
+    }
+  },
+  {
+    "name": "내뢰주【1】",
+    "size": 1,
+    "skill": {
+      "name": "번개 내성",
+      "level": 1
+    }
+  },
+  {
+    "name": "내빙주【1】",
+    "size": 1,
+    "skill": {
+      "name": "얼음 내성",
+      "level": 1
+    }
+  },
+  {
+    "name": "내룡주【1】",
+    "size": 1,
+    "skill": {
+      "name": "용 내성",
+      "level": 1
+    }
+  },
+  {
+    "name": "내화주Ⅲ【4】",
+    "size": 4,
+    "skill": {
+      "name": "불 내성",
+      "level": 3
+    }
+  },
+  {
+    "name": "내수주Ⅲ【4】",
+    "size": 4,
+    "skill": {
+      "name": "물 내성",
+      "level": 3
+    }
+  },
+  {
+    "name": "내빙주Ⅲ【4】",
+    "size": 4,
+    "skill": {
+      "name": "얼음 내성",
+      "level": 3
+    }
+  },
+  {
+    "name": "내뢰주Ⅲ【4】",
+    "size": 4,
+    "skill": {
+      "name": "번개 내성",
+      "level": 3
+    }
+  },
+  {
+    "name": "내룡주Ⅲ【4】",
+    "size": 4,
+    "skill": {
+      "name": "용 내성",
+      "level": 3
+    }
+  },
+  {
+    "name": "식학주Ⅲ【4】",
+    "size": 4,
+    "skill": {
+      "name": "식생학",
+      "level": 3
+    }
+  },
+  {
+    "name": "지학주Ⅲ【4】",
+    "size": 4,
+    "skill": {
+      "name": "지질학",
+      "level": 3
+    }
+  },
+  {
+    "name": "절식주Ⅲ【4】",
+    "size": 4,
+    "skill": {
+      "name": "만족감",
+      "level": 3
+    }
+  },
+  {
+    "name": "탈기주Ⅲ【4】",
+    "size": 4,
+    "skill": {
+      "name": "스태미나 탈취",
+      "level": 3
+    }
+  },
+  {
+    "name": "지속주Ⅲ【4】",
+    "size": 4,
+    "skill": {
+      "name": "아이템 사용 강화",
+      "level": 3
+    }
+  },
+  {
+    "name": "공복주Ⅲ【4】",
+    "size": 4,
+    "skill": {
+      "name": "배고픔 내성",
+      "level": 3
+    }
+  },
+  {
+    "name": "화염주Ⅱ【2】",
+    "size": 2,
+    "skill": {
+      "name": "불속성 공격 강화",
+      "level": 2
+    }
+  },
+  {
+    "name": "화염주Ⅲ【3】",
+    "size": 3,
+    "skill": {
+      "name": "불속성 공격 강화",
+      "level": 3
+    }
+  },
+  {
+    "name": "유수주Ⅱ【2】",
+    "size": 2,
+    "skill": {
+      "name": "물속성 공격 강화",
+      "level": 2
+    }
+  },
+  {
+    "name": "유수주Ⅲ【3】",
+    "size": 3,
+    "skill": {
+      "name": "물속성 공격 강화",
+      "level": 3
+    }
+  },
+  {
+    "name": "빙결주Ⅱ【2】",
+    "size": 2,
+    "skill": {
+      "name": "얼음속성 공격 강화",
+      "level": 2
+    }
+  },
+  {
+    "name": "빙결주Ⅲ【3】",
+    "size": 3,
+    "skill": {
+      "name": "얼음속성 공격 강화",
+      "level": 3
+    }
+  },
+  {
+    "name": "뇌광주Ⅱ【2】",
+    "size": 2,
+    "skill": {
+      "name": "번개속성 공격 강화",
+      "level": 2
+    }
+  },
+  {
+    "name": "뇌광주Ⅲ【3】",
+    "size": 3,
+    "skill": {
+      "name": "번개속성 공격 강화",
+      "level": 3
+    }
+  },
+  {
+    "name": "파룡주Ⅱ【2】",
+    "size": 2,
+    "skill": {
+      "name": "용속성 공격 강화",
+      "level": 2
+    }
+  },
+  {
+    "name": "파룡주Ⅲ【3】",
+    "size": 3,
+    "skill": {
+      "name": "용속성 공격 강화",
+      "level": 3
+    }
+  },
+  {
+    "name": "방어주Ⅱ【2】",
+    "size": 2,
+    "skill": {
+      "name": "방어",
+      "level": 2
+    }
+  },
+  {
+    "name": "방어주Ⅲ【3】",
+    "size": 3,
+    "skill": {
+      "name": "방어",
+      "level": 3
+    }
+  },
+  {
+    "name": "방어주Ⅴ【4】",
+    "size": 4,
+    "skill": {
+      "name": "방어",
+      "level": 5
+    }
+  },
+  {
+    "name": "폭사주Ⅲ【4】",
+    "size": 4,
+    "skill": {
+      "name": "보머",
+      "level": 3
+    }
+  },
+  {
+    "name": "연마주Ⅲ【4】",
+    "size": 4,
+    "skill": {
+      "name": "숫돌 사용 고속화",
+      "level": 3
+    }
+  },
+  {
+    "name": "치유주Ⅱ【4】",
+    "size": 4,
+    "skill": {
+      "name": "체력 회복량 UP",
+      "level": 2
+    }
+  },
+  {
+    "name": "체술주Ⅱ【4】",
+    "size": 4,
+    "skill": {
+      "name": "체술",
+      "level": 2
+    }
+  },
+  {
+    "name": "상충주Ⅱ【4】",
+    "size": 4,
+    "skill": {
+      "name": "밧줄벌레꾼",
+      "level": 2
+    }
+  },
+  {
+    "name": "벽주주Ⅲ【4】",
+    "size": 4,
+    "skill": {
+      "name": "벽면 이동",
+      "level": 3
+    }
+  },
+  {
+    "name": "조복주Ⅲ【4】",
+    "size": 4,
+    "skill": {
+      "name": "회복 속도",
+      "level": 3
+    }
+  },
+  {
+    "name": "가호주Ⅱ【4】",
+    "size": 4,
+    "skill": {
+      "name": "정령의 가호",
+      "level": 2
+    }
+  },
+  {
+    "name": "흡입주Ⅱ【4】",
+    "size": 4,
+    "skill": {
+      "name": "빨리 먹기",
+      "level": 2
+    }
+  },
+  {
+    "name": "내속주Ⅱ【4】",
+    "size": 4,
+    "skill": {
+      "name": "속성 피해 내성",
+      "level": 2
+    }
+  },
+  {
+    "name": "우애주Ⅲ【3】",
+    "size": 3,
+    "skill": {
+      "name": "광역화",
+      "level": 3
+    }
+  },
+  {
+    "name": "우애주Ⅳ【4】",
+    "size": 4,
+    "skill": {
+      "name": "광역화",
+      "level": 4
+    }
+  },
+  {
+    "name": "회피주Ⅱ【4】",
+    "size": 4,
+    "skill": {
+      "name": "회피 성능",
+      "level": 2
+    }
+  },
+  {
+    "name": "발타주Ⅱ【4】",
+    "size": 4,
+    "skill": {
+      "name": "발도술【힘】",
+      "level": 2
+    }
+  },
+  {
+    "name": "내충주Ⅲ【4】",
+    "size": 4,
+    "skill": {
+      "name": "움찔 감소",
+      "level": 3
+    }
+  },
+  {
+    "name": "포말주Ⅱ【4】",
+    "size": 4,
+    "skill": {
+      "name": "거품의 춤",
+      "level": 2
+    }
+  },
+  {
+    "name": "KO주Ⅱ【4】",
+    "size": 4,
+    "skill": {
+      "name": "KO술",
+      "level": 2
+    }
+  },
+  {
+    "name": "도약주Ⅱ【4】",
+    "size": 4,
+    "skill": {
+      "name": "회피 거리 UP",
+      "level": 2
+    }
+  },
+  {
+    "name": "방풍주Ⅲ【4】",
+    "size": 4,
+    "skill": {
+      "name": "풍압 내성",
+      "level": 3
+    }
+  },
+  {
+    "name": "조기주Ⅱ【4】",
+    "size": 4,
+    "skill": {
+      "name": "스태미나 급속 회복",
+      "level": 2
+    }
+  },
+  {
+    "name": "철벽주Ⅱ【3】",
+    "size": 3,
+    "skill": {
+      "name": "가드 성능",
+      "level": 2
+    }
+  },
+  {
+    "name": "강벽주Ⅱ【4】",
+    "size": 4,
+    "skill": {
+      "name": "가드 강화",
+      "level": 2
+    }
+  },
+  {
+    "name": "사법주Ⅱ【4】",
+    "size": 4,
+    "skill": {
+      "name": "탄도 강화",
+      "level": 2
+    }
+  },
+  {
+    "name": "속회주Ⅱ【4】",
+    "size": 4,
+    "skill": {
+      "name": "회심격【속성】",
+      "level": 2
+    }
+  },
+  {
+    "name": "단축주Ⅱ【4】",
+    "size": 4,
+    "skill": {
+      "name": "집중",
+      "level": 2
+    }
+  },
+  {
+    "name": "강주주Ⅱ【4】",
+    "size": 4,
+    "skill": {
+      "name": "런너",
+      "level": 2
+    }
+  },
+  {
+    "name": "발도주Ⅱ【4】",
+    "size": 4,
+    "skill": {
+      "name": "발도술【기】",
+      "level": 2
+    }
+  },
+  {
+    "name": "이호주Ⅱ【4】",
+    "size": 4,
+    "skill": {
+      "name": "버섯 애호가",
+      "level": 2
+    }
+  },
+  {
+    "name": "내절주Ⅲ【4】",
+    "size": 4,
+    "skill": {
+      "name": "기절 내성",
+      "level": 3
+    }
+  },
+  {
+    "name": "심안주Ⅱ【4】",
+    "size": 4,
+    "skill": {
+      "name": "심안",
+      "level": 2
+    }
+  },
+  {
+    "name": "방음주Ⅱ【4】",
+    "size": 4,
+    "skill": {
+      "name": "귀마개",
+      "level": 2
+    }
+  },
+  {
+    "name": "고양주Ⅱ【4】",
+    "size": 4,
+    "skill": {
+      "name": "강화 지속",
+      "level": 2
+    }
+  },
+  {
+    "name": "내진주Ⅱ【4】",
+    "size": 4,
+    "skill": {
+      "name": "내진",
+      "level": 2
+    }
+  },
+  {
+    "name": "귀화주Ⅱ【4】",
+    "size": 4,
+    "skill": {
+      "name": "귀화전",
+      "level": 2
+    }
+  },
+  {
+    "name": "운기주Ⅱ【4】",
+    "size": 4,
+    "skill": {
+      "name": "행운",
+      "level": 2
+    }
+  },
+  {
+    "name": "인린주【2】",
+    "size": 2,
+    "skill": {
+      "name": "신속의 숨결",
+      "level": 1
+    }
+  },
+  {
+    "name": "벽상주【1】",
+    "size": 1,
+    "skill": {
+      "name": "칼날비늘 연마",
+      "level": 1
+    }
+  },
+  {
+    "name": "합기주【3】",
+    "size": 3,
+    "skill": {
+      "name": "합기",
+      "level": 1
+    }
+  },
+  {
+    "name": "숨결주【3】",
+    "size": 3,
+    "skill": {
+      "name": "벽면 이동【상】",
+      "level": 1
+    }
+  },
+  {
+    "name": "강궁주【4】",
+    "size": 4,
+    "skill": {
+      "name": "활 모으기 단계 해제",
+      "level": 1
+    }
+  },
+  {
+    "name": "점사주Ⅱ【4】",
+    "size": 4,
+    "skill": {
+      "name": "흔들림 억제",
+      "level": 2
+    }
+  }
+]
