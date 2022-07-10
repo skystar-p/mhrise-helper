@@ -238,12 +238,12 @@ async fn main() -> anyhow::Result<()> {
         let input = input.trim();
         let input = input.to_string();
         part_keywords.add_keyword(&armor.part, &input);
-        let serialized = serde_json::to_string(&part_keywords)?;
+        let serialized = serde_json::to_string_pretty(&part_keywords)?;
         tokio::fs::write("assets/part_keywords.json", serialized).await?;
     }
 
     // save to file
-    let serialized = serde_json::to_string(&armors)?;
+    let serialized = serde_json::to_string_pretty(&armors)?;
     tokio::fs::write("assets/armors.json", serialized).await?;
 
     Ok(())
