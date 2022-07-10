@@ -1,7 +1,7 @@
-use crate::types::{Armor, ArmorPart, PartKeywords, Skill};
+use crate::types::{Armor, ArmorPart, Deco, PartKeywords, Skill};
 use anyhow::bail;
 
-pub async fn crawl_and_parse() -> anyhow::Result<Vec<Armor>> {
+pub async fn crawl_and_parse_armors() -> anyhow::Result<Vec<Armor>> {
     // read part keywords from file
     let part_keywords = tokio::fs::read_to_string("assets/part_keywords.json").await?;
     let mut part_keywords: PartKeywords = serde_json::from_str(&part_keywords)?;
@@ -164,4 +164,68 @@ pub async fn crawl_and_parse() -> anyhow::Result<Vec<Armor>> {
     tokio::fs::write("assets/armors.json", serialized).await?;
 
     Ok(armors)
+}
+
+pub async fn crawl_and_parse_decos() -> anyhow::Result<Vec<Deco>> {
+    let client = reqwest::Client::new();
+    let mut decos = Vec::new();
+    let response = client
+        .get("https://mhrise.kiranico.com/ko/data/decorations")
+        .send()
+        .await?;
+
+    let body = response.text().await?;
+
+    let doc = scraper::Html::parse_document(&body);
+
+    // select main table
+    let table_selector = scraper::Selector::parse("table[x-data=categoryFilter]").unwrap();
+    let table = if let Some(t) = doc.select(&table_selector).next() {
+        t
+    } else {
+        bail!("table not found");
+    };
+
+    // select each table row
+    let row_selector = scraper::Selector::parse("tr").unwrap();
+    let rows = table.select(&row_selector);
+
+    for row in rows {
+        // select each td
+        let td_selector = scraper::Selector::parse("td").unwrap();
+        let mut tds = row.select(&td_selector);
+
+        let name = if let Some(t) = tds.next() {
+            let a_selector = scraper::Selector::parse("a").unwrap();
+            let a = if let Some(a) = t.select(&a_selector).next() {
+                a
+            } else {
+                bail!("a not found in name td");
+            };
+            let s = a.text().collect::<String>();
+            s.trim().to_string()
+        } else {
+            bail!("name td not found in tr");
+        };
+
+        let skill = if let Some(t) = tds.next() {
+            let text = t.text().collect::<String>().trim().to_string();
+            let (name, level) = text.rsplit_once(" ").unwrap();
+            Skill {
+                name: name.trim().to_string(),
+                level: level.trim_start_matches("Lv").parse::<isize>().unwrap(),
+            }
+        } else {
+            bail!("skills td not found in tr");
+        };
+
+        // push to decos
+        decos.push(Deco { name, skill });
+    }
+
+    // save to file
+    let serialized = serde_json::to_string_pretty(&decos)?;
+    tokio::fs::write("assets/decos.json", serialized).await?;
+
+    Ok(decos)
 }
