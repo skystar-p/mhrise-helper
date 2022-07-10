@@ -1,4 +1,4 @@
-use crate::armor::{Armor, ArmorPart, PartKeywords, Skill};
+use crate::types::{Armor, ArmorPart, PartKeywords, Skill};
 use anyhow::bail;
 
 pub async fn crawl_and_parse() -> anyhow::Result<Vec<Armor>> {

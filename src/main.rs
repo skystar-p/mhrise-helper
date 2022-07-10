@@ -1,5 +1,5 @@
-mod armor;
 mod parse;
+mod types;
 
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
