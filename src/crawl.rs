@@ -8,11 +8,11 @@ pub async fn crawl_and_parse_armors() -> anyhow::Result<Vec<Armor>> {
 
     let client = reqwest::Client::new();
     let mut armors = Vec::new();
-    for rarity in 0..10 {
+    for rarity in 1..=10 {
         let response = client
             .get(format!(
                 "https://mhrise.kiranico.com/ko/data/armors?view={}",
-                rarity
+                rarity - 1
             ))
             .send()
             .await?;
